@@ -1,1 +1,34 @@
 # AdventOfCode
+
+Collection of task completed in AdventOfCode in various programming languages, such as JavaScript, Python etc
+
+TODO: 
+- Complete 2024
+- 2023 not imported yet
+- Complete tasks in more languages
+- Implement commands for more languages
+
+## Commands
+
+```bash
+# Add these to your ~/.bash_aliases
+AOC="D:/workspace/AdventOfCode/2024" # remember to change this to whatever your AOC directory is
+AOC_COOKIE="" # get this from the cookies tab in network tools on the AOC website
+
+alias aos="cd $AOC; python solution.py < in.txt"
+alias aot="cd $AOC; echo -ne '\\e[0;34m'; python solution.py < test.txt; echo -ne '\\e[0m'"
+alias aoc="aot; echo; aos"
+
+alias jaos="cd $AOC; bun solution.js in.txt"
+alias jaot="cd $AOC; bun solution.js test.txt"
+alias jaoc="jaot; echo; jaos"
+
+function aoc-load () {
+    if [ $1 ]
+    then
+        curl --cookie "session=$AOC_COOKIE" https://adventofcode.com/$1/day/$2/input > in.txt
+    else
+        curl --cookie "session=$AOC_COOKIE" "$(echo `date +https://adventofcode.com/%Y/day/%d/input` | sed 's/\/0/\//g')" > in.txt
+    fi
+}
+```
