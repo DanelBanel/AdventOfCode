@@ -7,7 +7,8 @@ TODO:
 - 2023 not imported yet
 - Complete tasks in more languages
 - Implement commands for more languages
-
+## Dependencies
+Bun for Javascript
 ## Commands
 
 ```bash
