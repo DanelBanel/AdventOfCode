@@ -1,15 +1,38 @@
 # AdventOfCode
 
-Collection of task completed in AdventOfCode in various programming languages, such as JavaScript, Python etc
+Collection of task completed in [AdventOfCode](https://adventofcode.com/) in various programming languages, such as JavaScript, Python etc
 
 TODO: 
 - Complete 2024
 - 2023 not imported yet
 - Complete tasks in more languages
 - Implement commands for more languages
+- TODO add how to install bun and other dependencies
+- TODO add more info about the commands
+
 ## Dependencies
+
 Bun for Javascript
+
 ## Commands
+
+These commands expects the script file to be named `solution.*` depending on the programming language (currently supported, `Python` and `JavaScript`), i.e. `solution.js` and `solution.py`.
+
+The input files are expected to be named as:
+- `test.txt` - Test input
+- `in.txt` - Large input
+
+Then the following commands can be run for various purposes, depending on the programming language:
+- `aoc-load $1 $2` - Tries to fetch the input data from the [AdventOfCode](https://adventofcode.com/) website and write it to `in.txt`. Requires token from website to be active
+- Python
+    - `aos` - 
+    - `aot` - 
+    - `aoc` - 
+- JavaScript
+    - `jaos` - 
+    - `jaot` - 
+    - `jaoc` - 
+
 
 ```bash
 # Add these to your ~/.bash_aliases
