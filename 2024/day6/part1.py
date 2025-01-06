@@ -9,8 +9,14 @@ for input in raw_input:
 
 # (row, column)
 
-guard_symbols = ["^", ">", "v", "<",]
-directons_dict = {"^": (-1, 0), ">": (0, 1), "v": (1, 0), "<": (0, -1)}	
+guard_symbols = [
+    "^",
+    ">",
+    "v",
+    "<",
+]
+directons_dict = {"^": (-1, 0), ">": (0, 1), "v": (1, 0), "<": (0, -1)}
+
 
 def traverse(map):
     def move_player(map, start_i, start_j, delta, new_player):
@@ -29,7 +35,15 @@ def traverse(map):
             current_pos = map[i][j]
             if map[i][j] in guard_symbols:
                 # Move the player, using the directions of the current position and the next symbol in the guard_symbols list
-                move_player(map, i, j, directons_dict[current_pos], guard_symbols[(guard_symbols.index("<") + 1) % len(guard_symbols)])
+                move_player(
+                    map,
+                    i,
+                    j,
+                    directons_dict[current_pos],
+                    guard_symbols[
+                        (guard_symbols.index(current_pos) + 1) % len(guard_symbols)
+                    ],
+                )
 
 
 def print_map():
