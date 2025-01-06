@@ -9,7 +9,6 @@ TODO:
 - Implement commands for more languages
 - TODO add how to install bun and other dependencies
 - TODO add more info about the commands
-- TODO clean up day5
 
 ## Dependencies
 

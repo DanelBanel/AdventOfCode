@@ -2,6 +2,8 @@ raw_input = open(0).readlines()
 
 page_ordering_rules: list[tuple] = []
 pages: list[int] = []
+
+# Parse input
 for input in raw_input:
     print(f"{input=}")
     if "|" in input:
@@ -14,12 +16,12 @@ for input in raw_input:
         page = list(map(int, input.split(",")))
         pages.append(page)
 
-print(f"{page_ordering_rules=}")
-print(f"{pages=}")
+# Create a cache for the ordering rules
 cache = {}
-for x,y in page_ordering_rules:
-    cache[(x,y)]   = True
-    cache[(y,x)] = False
+for x, y in page_ordering_rules:
+    cache[(x, y)] = True
+    cache[(y, x)] = False
+
 
 def is_ordered(page: list[int]) -> bool:
     for i in range(len(page)):
@@ -27,12 +29,12 @@ def is_ordered(page: list[int]) -> bool:
             if (page[i], page[j]) in cache and not cache[(page[i], page[j])]:
                 print("NO")
                 return False
-    print("YES")
-    print(f"{page[len(page) // 2]}")
     return True
+
+
+# Loop over pages and check if they are ordered, add the middle element to sum
 sum = 0
 for page in pages:
-    print(f"{page=}")
     if is_ordered(page):
         sum += page[len(page) // 2]
 
