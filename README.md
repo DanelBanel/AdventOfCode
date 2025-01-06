@@ -4,11 +4,10 @@ Collection of task completed in [AdventOfCode](https://adventofcode.com/) in var
 
 TODO: 
 - Complete 2024
-- 2023 not imported yet
+- 2023 not imported yet (on the Mac I think)
 - Complete tasks in more languages
 - Implement commands for more languages
 - TODO add how to install bun and other dependencies
-- TODO add more info about the commands
 - TODO add commit hook to format documents
 
 ## Dependencies
@@ -24,15 +23,15 @@ The input files are expected to be named as:
 - `in.txt` - Large input
 
 Then the following commands can be run for various purposes, depending on the programming language:
-- `aoc-load $1 $2` - Tries to fetch the input data from the [AdventOfCode](https://adventofcode.com/) website and write it to `in.txt`. Requires token from website to be active
+- `aoc-load $1 $2` - Tries to fetch the input data from the [AdventOfCode](https://adventofcode.com/) website and write it to `in.txt`. Requires cookie token from website to be active and set.
 - Python
-    - `aos` - 
-    - `aot` - 
-    - `aoc` - 
+    - `aot` - Runs `solution.py` with `test.txt` as input (output in blue)
+    - `aos` - Runs `solution.py` with `in.txt` as input
+    - `aoc` - Runs `aot` and `aos`
 - JavaScript
-    - `jaos` - 
-    - `jaot` - 
-    - `jaoc` - 
+    - `jaos` - Runs `solution.js` with `test.txt` as input (output in blue)
+    - `jaot` - Runs `solution.js` with `in.txt` as input
+    - `jaoc` - Runs `jaot` and `jaos`
 
 
 ```bash
@@ -40,8 +39,8 @@ Then the following commands can be run for various purposes, depending on the pr
 AOC="D:/workspace/AdventOfCode/2024" # remember to change this to whatever your AOC directory is
 AOC_COOKIE="" # get this from the cookies tab in network tools on the AOC website
 
-alias aos="cd $AOC; python solution.py < in.txt"
 alias aot="cd $AOC; echo -ne '\\e[0;34m'; python solution.py < test.txt; echo -ne '\\e[0m'"
+alias aos="cd $AOC; python solution.py < in.txt"
 alias aoc="aot; echo; aos"
 
 alias jaos="cd $AOC; bun solution.js in.txt"
