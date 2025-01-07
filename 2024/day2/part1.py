@@ -8,7 +8,10 @@ for input in raw_input:
     print(levels)
     valid = True
     for l_idx in range(1, len(levels)):
-        if 0 >= abs(levels[l_idx] - levels[l_idx - 1]) or abs(levels[l_idx] - levels[l_idx - 1]) > 3:
+        if (
+            0 >= abs(levels[l_idx] - levels[l_idx - 1])
+            or abs(levels[l_idx] - levels[l_idx - 1]) > 3
+        ):
             valid = False
         if levels != sorted(levels, reverse=True) and levels != sorted(levels):
             valid = False

@@ -4,7 +4,7 @@ right = []
 for input in raw_input:
     a, b = map(int, input.split())
     left.append(a)
-    right.append(b)   
+    right.append(b)
 left.sort()
 right.sort()
 total = 0

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -e
+
+if command -v ruff &>/dev/null; then
+    if ! ruff format --check --diff; then
+        echo -e "\nWARNING: Commit failed due to formatting issues, fix before committing"
+        echo -e "\nSee README.md for more info"
+        exit 1
+    fi
+    if ! ruff check; then
+        echo -e "\nWARNING: Commit failed due to linting issues, fix before committing"
+        echo -e "\nSee README.md for more info"
+        exit 1
+    fi
+else
+    echo -e "\nWARNING: No checks ran because 'ruff' is not installed correctly\n"
+    exit 1
+fi
+
+
+# if command -v pytest &>/dev/null; then
+#     if ! pytest; then
+#         echo -e "\nWARNING: Commit failed due to test issues, fix before committing"
+#         echo -e "\nSee README.md for more info"
+#         exit 1
+#     fi
+# else
+#     echo -e "\nWARNING: No checks ran because 'pytest' is not installed correctly\n"
+#     exit 1
+# fi

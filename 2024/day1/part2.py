@@ -4,10 +4,10 @@ right = []
 for input in raw_input:
     a, b = map(int, input.split())
     left.append(a)
-    right.append(b)   
+    right.append(b)
 
 total = 0
-for l in left:
-    occurences = right.count(l)
-    total += occurences * l
+for element in left:
+    occurences = right.count(element)
+    total += occurences * element
 print(total)
