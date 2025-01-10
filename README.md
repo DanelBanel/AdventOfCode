@@ -1,6 +1,6 @@
 # AdventOfCode
 
-Collection of task completed in [AdventOfCode](https://adventofcode.com/) in various programming languages, such as JavaScript, Python etc.
+Collection of task completed in [AdventOfCode](https://adventofcode.com/) in various programming languages, such as JavaScript, Python, Rust etc.
 
 ## Table of contents
 - [AdventOfCode](#adventofcode)
@@ -17,13 +17,17 @@ Collection of task completed in [AdventOfCode](https://adventofcode.com/) in var
 - 2023 not imported yet (on the Mac I think)
 - Complete tasks in more languages
 - Implement commands for more languages
+- TODO add rust (and JS?) checks in pre-commit hook
+- Add templates for Python and Javascript
 
 ## Dependencies
 
-Bun for Javascript, install with:
+- Bun for Javascript, install with:
 ```bash
 powershell -c "irm bun.sh/install.ps1|iex" # https://bun.sh/docs/installation
 ```
+
+- Rust, install here: <https://www.rust-lang.org/tools/install>
 
 ## Bash help commands
 
@@ -43,7 +47,10 @@ Then the following commands can be run for various purposes, depending on the pr
     - `jaos` - Runs `solution.js` with `test.txt` as input (output in blue)
     - `jaot` - Runs `solution.js` with `in.txt` as input
     - `jaoc` - Runs `jaot` and `jaos`
-
+- Rust
+    - `raos <day> <part>` - Runs `<day>/bin/<part>.rs` with `test.txt` as input, where `<day>` and `<part>` is just the integer of the day, e.g. `raos 7 1`
+    - `raot <day> <part>` - Runs `day<day>/bin/part<part>.rs` with `in.txt` as input, where `<day>` and `<part>` is just the integer of the day, e.g. `raos 7 1`
+    - `raoc <day> <part>` - Runs `raot <day> <part>` and `raos <day> <part>`, where `<day>` and `<part>` is just the integer of the day, e.g. `raos 7 1`
 
 ```bash
 # Add these to your ~/.bash_aliases
@@ -58,6 +65,34 @@ alias jaos="cd $AOC; bun solution.js in.txt"
 alias jaot="cd $AOC; bun solution.js test.txt"
 alias jaoc="jaot; echo; jaos"
 
+alias raos="rao in.txt"
+alias raot="rao test.txt"
+alias raoc="raoc_func"
+
+function raoc_func() {
+    raot "$1" "$2" && echo && raos "$1" "$2"
+}
+
+function rao () {
+    prev_dir=$(pwd)
+    if [ $2 ]
+    then
+        cd $AOC
+        cd day$2
+        if [ $3 ]
+        then
+            cargo run --bin part$3 $AOC/$1
+        else
+            echo "Usage: rao <input_file> <day> <part>"
+            echo "Please provide which part to run"
+        fi
+    else
+        echo "Usage: rao <input_file> <day> <part>"
+        echo "Please provide which day to run"
+    fi
+    cd $prev_dir
+}
+
 function aoc-load () {
     if [ $1 ]
     then
@@ -67,6 +102,8 @@ function aoc-load () {
     fi
 }
 ```
+
+Then run e.g. `exec bash` or `source /path/to/.bashrc` to activate the changes.
 
 ## Virtual environment
 
