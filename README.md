@@ -20,7 +20,6 @@ Collection of task completed in [AdventOfCode](https://adventofcode.com/) in var
 - Complete tasks in more languages
 - Implement commands for more languages
 - TODO add rust (and JS?) checks in pre-commit hook
-- Create section on [Formatting](#formatting)
 - TODO fix all file/folder paths in this document, relative to where they are supposed to be, like templates on line 44
 
 ## Dependencies
@@ -114,7 +113,7 @@ Then run e.g. `exec bash` or `source /path/to/.bashrc` to activate the changes.
 
 ## Formatting
 
-TODO
+There as several tools to make the formatting and linting of the project as automated as possible. Listed below is additional info regarding this.
 
 ### Virtual environment
 
